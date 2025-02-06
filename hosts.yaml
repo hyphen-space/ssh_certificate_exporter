@@ -1,0 +1,12 @@
+hosts:
+  - wg1.hyphenspace.net
+  # - almalinux.hyphenspace.net
+  - freebsd.hyphenspace.net
+  - ubuntu.hyphenspace.net
+  - k3s.hyphenspace.net
+  - ns1.hyphenspace.net
+  - k8s-control-plane.hyphenspace.net
+  - wg2.hyphenspace.net
+  - containerhost.hyphenspace.net
+  - ns2.hyphenspace.net
+  - cloud.hyphenspace.net
