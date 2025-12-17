@@ -11,8 +11,15 @@ def get_ssh_cert_expiration(host):
     try:
         command = ["ssh-keyscan", "-c", host]
         result = subprocess.run(command, capture_output=True, check=True).stdout.strip()
-        ssh_cert = serialization.load_ssh_public_identity(result)
-        return ssh_cert.valid_before
+
+        for line in result.splitlines():
+            line = line.strip()
+            if not line or line.startswith(b'#'):
+              continue
+            else:
+              ssh_cert = serialization.load_ssh_public_identity(line)
+              return ssh_cert.valid_before
+        return None
 
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
