@@ -1,9 +1,9 @@
 hosts:
   - ubuntu.hyphenspace.net
-  - k8s-control-plane.hyphenspace.net
+  - k8s-prod-01.hyphenspace.net
   - containerhost.hyphenspace.net
   - cloud.hyphenspace.net
   - target.hyphenspace.net
   - dev.hyphenspace.net
-  - pi.hyphenspace.net
+  - pi3.hyphenspace.net
   - pi4.hyphenspace.net
