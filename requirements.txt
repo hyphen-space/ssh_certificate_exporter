@@ -1,5 +1,0 @@
-cffi==1.17.1
-cryptography==44.0.0
-prometheus_client==0.21.1
-pycparser==2.22
-PyYAML==6.0.2
