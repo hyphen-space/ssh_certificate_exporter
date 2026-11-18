@@ -1,8 +1,8 @@
 services:
   ssh_certificate_exporter:
-    build: .
+    image: ghcr.io/hyphen-space/ssh_certificate_exporter:latest
     restart: always
     volumes:
       - ./hosts.yaml:/app/hosts.yaml
     ports:
-      - 8000:8000
+      - "8000:8000"
