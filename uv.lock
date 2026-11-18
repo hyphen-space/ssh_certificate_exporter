@@ -272,7 +272,6 @@ name = "ssh-certificate-exporter"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "basedpyright" },
     { name = "cffi" },
     { name = "cryptography" },
     { name = "prometheus-client" },
@@ -288,7 +287,6 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "basedpyright", specifier = ">=1.40.2" },
     { name = "cffi", specifier = "==2.1.1" },
     { name = "cryptography", specifier = "==50.0.2" },
     { name = "prometheus-client", specifier = "==0.26.0" },

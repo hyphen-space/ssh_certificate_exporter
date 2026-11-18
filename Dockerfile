@@ -1,19 +1,21 @@
-FROM docker.io/library/python:3.13-slim
-# This prevents Python from writing out pyc files
-ENV PYTHONDONTWRITEBYTECODE 1
-# This keeps Python from buffering stdin/stdout
-ENV PYTHONUNBUFFERED 1
+FROM docker.io/library/python:3.14-slim
+
+COPY --from=ghcr.io/astral-sh/uv:0.13.9 /uv /usr/local/bin/uv
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt /app/requirements.txt
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openssh-client \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install -r requirements.txt
-
-RUN apt-get update && apt-get install -y openssh-client && apt clean && rm -rf /var/lib/apt/lists/*
+COPY pyproject.toml uv.lock ./
+RUN uv sync --locked --no-dev --no-install-project --no-cache --python /usr/local/bin/python
 
 COPY main.py /app/main.py
 
 EXPOSE 8000
 
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["/app/.venv/bin/python", "main.py"]

@@ -5,7 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "basedpyright>=1.40.2",
     "cffi==2.1.1",
     "cryptography==50.0.2",
     "prometheus-client==0.26.0",
