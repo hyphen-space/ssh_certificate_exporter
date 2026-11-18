@@ -1,0 +1,30 @@
+[tools]
+uv = "0.13.9"
+
+[env]
+# Automatically create and activate a local .venv when entering the directory
+_.python.venv = { path = ".venv", create = true }
+
+[tasks.fmt]
+description = "Format code with Ruff"
+run = "ruff format --check ."
+
+[tasks.lint]
+description = "Lint and auto-fix code with Ruff"
+run = "ruff check . --fix"
+
+[tasks.typecheck]
+description = "Run static type checks with basedpyright"
+run = "basedpyright"
+
+[tasks.audit]
+description = "Audit Python depdendencies"
+run = "uv audit --preview-features audit-command"
+
+[tasks.fix]
+description = "Automatically fix code with ruff, if possible"
+run = "ruf format ."
+
+[tasks.check]
+description = "Run formatting check, linter, and type checker"
+depends = ["typecheck", "lint", "fmt", "audit"]

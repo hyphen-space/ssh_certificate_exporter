@@ -5,9 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "cffi==1.17.1",
-    "cryptography==44.0.0",
-    "prometheus-client==0.21.1",
-    "pycparser==2.22",
-    "pyyaml==6.0.2",
+    "basedpyright>=1.40.2",
+    "cffi==2.1.1",
+    "cryptography==50.0.2",
+    "prometheus-client==0.26.0",
+    "pycparser==3.12",
+    "pyyaml==6.0.3",
 ]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.2",
+    "ruff>=0.17.5",
+]
+
+[tool.basedpyright]
+typeCheckingMode = "strict"
